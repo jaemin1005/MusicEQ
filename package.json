@@ -1,0 +1,16 @@
+{
+  "name": "musiceq",
+  "version": "1.0.0",
+  "description": "내가 만드는 웹페이지",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HwangJaeMin",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "tslint": "^6.1.3",
+    "typescript": "^5.4.4"
+  }
+}
