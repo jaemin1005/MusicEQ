@@ -1,0 +1,10 @@
+node_modules
+node_modules/** 
+tsconfig.json
+tslint.json
+*.d.ts
+tsconfig.json
+Test
+*.map
+package-lock.json
+Test

@@ -10,5 +10,21 @@
   <svg id="waveform" preserveAspectRatio="none">
     <g id="waveform-path-group"></g>
   </svg>
-  <script src="main.js"></script>
+  <!-- <script src="main.js"></script> -->
+  <script>
+     let observer = new MutationObserver(mutationRecords => {
+    console.log(mutationRecords);
+  });
+  
+  let id = document.getElementById("audio-uploader");
+
+
+  // childList, subtree, characterData 변경사항 관측
+  // characterData의 경우 변경 이전의 값도 함께 전달
+  observer.observe(id, {
+    childList: true,
+    subtree: true,
+    characterDataOldValue: true,
+  });
+  </script>
 </html>

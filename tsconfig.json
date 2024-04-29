@@ -1,13 +1,50 @@
 {
 	"compilerOptions":{
-		"lib" : ["es2020"],
+		"target" : "ES6",
+		"lib" : ["es5","ES2015","DOM"],
+		
+		/**
+		* * module : 생성될 모듈 코드 설정
+		* * 모듈 분석 방법 설정: 'node' (Node.js) 또는 'classic' (TypeScript pre-1.6)
+		*/
 		"module" : "commonjs",
-		"outDir": "dist",
+		"moduleResolution": "node",
+		
+		/**
+		* * 컴파일 된 파일 디렉토리에 .js.map이 만들어진다.
+		* * js 코드가 ts의 어디에 해당되는지 알려줌.
+		*/
 		"sourceMap" : true,
+
+		/**
+		* * 
+		* * 컴파일 시 .d.ts 파일을 자동생성
+		*/
+		"declaration": true,
+
 		"strict" : true,
-		"target" : "es2020"
+		"noImplicitAny": false,
+		"strictPropertyInitialization": false,
+		/**
+		* * baseUrl, paths
+		* * import 구문의 모듈 해석 시에 기준이 되는 경로를 지정한다.
+		* * 'base url을 기준으로 상대 위치로 가져오기를 다시 맵핑하는 설정'
+		* * 별도로tsconfig-paths 와 tsc-alias 라는 모듈을 설치해야함
+		*/
+		"baseUrl": "./",
+
+		// * 컴파일 에러시 js 파일 생성 X
+		"noEmitOnError": true,
+
+		// * 컴파일 시 타입스크립트의 주석을 모두 제거
+		"removeComments": true,
+
+		// * 파일의 대소문자를 구별한다.
+		"forceConsistentCasingInFileNames": true
 	},
-	"include" : {
-		"ts"
-	}
+
+	// * tsconfing-paths
+	"ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }
