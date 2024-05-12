@@ -42,7 +42,9 @@ class Effect {
       return current;
     }, inputNode);
 
+    const outputNode = audioAnalyzer.audioContext.createGain();
+    filters[filters.length - 1].connect(outputNode);
+    outputNode.connect(audioAnalyzer.audioContext.destination);
     return filters;
   }
-
 }

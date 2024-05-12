@@ -1,22 +1,26 @@
-import { AudioAnalyer } from "Model/AudioAnalyzer";
+import { AudioAnalyzer } from "../Module/AudioAnalyzer";
 import { ViewModel } from "./ViewModel";
-import { buffer } from "stream/consumers";
 
 export class AudioViewModel extends ViewModel{
   
-  private audioAnalyzer : AudioAnalyer;
+  private audioAnalyzer : AudioAnalyzer | null;
   
-  constructor(titleName)
+  constructor(titleName : string)
   {
     super(titleName);
-    this.audioAnalyzer = new AudioAnalyer();
+    try{
+      this.audioAnalyzer = new AudioAnalyzer();
+    }catch(err){
+      this.audioAnalyzer = null;
+    }
   }
 
-  public SetAudio(audioFile){
-    this.audioAnalyzer.audioContext.decodeAudioData(audioFile).then( buffer => {
-      this.audioAnalyzer.audioBuffer = buffer;
-      this.audioAnalyzer.samplerate = buffer.sampleRate;
-    });
+  public SetAudio(audioFile : ArrayBuffer){
+    // this.audioAnalyzer.init();
+    // const fileReader = new FileReader();
+    // this.audioAnalyzer.audioContext.decodeAudioData(audioFile).then( buffer => {
+    //   this.audioAnalyzer.audioBuffer = buffer;
+    //   this.audioAnalyzer.samplerate = buffer.sampleRate;
+    // });
   }
-
 }

@@ -1,4 +1,4 @@
-import { IViewModel } from "ViewModels/IViewModel"
+import { IViewModel } from "./IViewModel";
 
 export class ViewModel implements IViewModel{
     titleName: string;
